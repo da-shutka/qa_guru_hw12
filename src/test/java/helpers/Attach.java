@@ -15,6 +15,8 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
 
+    private static final String wdHost = System.getProperty("wdhost", "");
+
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshotAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
@@ -45,7 +47,9 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
+        //String wdhost = System.getProperty("wdhost", "");
+        //String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
+        String videoUrl = wdHost + "/video" + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);
         } catch (MalformedURLException e) {
