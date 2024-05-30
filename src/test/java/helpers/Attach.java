@@ -49,7 +49,7 @@ public class Attach {
     public static URL getVideoUrl() {
         //String wdhost = System.getProperty("wdhost", "");
         //String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
-        String videoUrl = wdHost + "/video" + sessionId() + ".mp4";
+        String videoUrl = wdHost + "/video/" + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);
         } catch (MalformedURLException e) {
