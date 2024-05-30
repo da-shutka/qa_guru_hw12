@@ -18,9 +18,11 @@ public class TestBase {
     @BeforeAll
     static void settingsBeforeAll() {
         Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browser = SystemProperties.browser;
+        Configuration.browserSize = SystemProperties.browserSize;
+        Configuration.browserVersion = SystemProperties.browserVersion;
+
         Configuration.baseUrl = "https://demoqa.com";
-        //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         Configuration.remote = "https://user1:1234@" + SystemProperties.wdHost + "/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
