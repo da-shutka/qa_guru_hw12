@@ -17,7 +17,7 @@ public class TextBoxPage extends BasePage {
     OutputComponent output = new OutputComponent();
 
     public TextBoxPage openPage() {
-        open("text-box");
+        open("/text-box");
         $("h1").shouldHave(text("Text Box"));
         this.removeBanners();
         return this;

@@ -45,6 +45,7 @@ dependencies {
 }
 
 tasks.withType(Test) {
+    systemProperties(System.getProperties());
     useJUnitPlatform()
 
     testLogging {
@@ -64,5 +65,11 @@ task demoqa_auto(type: Test) {
 task demoqa_textbox(type: Test) {
     useJUnitPlatform {
         includeTags("demoqa_text")
+    }
+}
+
+task property_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("property")
     }
 }

@@ -34,7 +34,7 @@ public class RegistrationPage extends BasePage {
 
     @Step("Открыть регистрационную форму")
     public RegistrationPage openPage() {
-        open("automation-practice-form");
+        open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         this.removeBanners();
         return this;

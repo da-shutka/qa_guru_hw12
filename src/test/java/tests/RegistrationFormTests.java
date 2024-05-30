@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.TestData;
@@ -13,6 +14,7 @@ public class RegistrationFormTests extends TestBase {
     TestData testData = new TestData();
 
     @Test
+    @Tag("regress")
     @DisplayName("Регистрационная форма. Заполнены все поля")
     void checkRegistrationFormAllFieldsTest() {
         registrationPage.openPage()
@@ -47,6 +49,10 @@ public class RegistrationFormTests extends TestBase {
                 .checkResult("State and City", testData.state + " " + testData.city);
     }
 
+    @Tags({
+            @Tag("smoke"),
+            @Tag("regress")
+    })
     @Test
     @DisplayName("Регистрационная форма. Заполнены обязательные поля")
     void checkRegistrationFormMandatoryFieldsTest() {
@@ -70,6 +76,7 @@ public class RegistrationFormTests extends TestBase {
     }
 
     @Test
+    @Tag("regress")
     @DisplayName("Регистрационная форма. Заполнены дефолтные поля")
     void checkRegistrationFormNegativeTest() {
         registrationPage.openPage().submit();

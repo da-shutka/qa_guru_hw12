@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.TextBoxPage;
 import utils.TestData;
@@ -13,6 +14,10 @@ public class TextBoxTests extends TestBase {
     TestData testData = new TestData();
 
     @Test
+    @Tags({
+            @Tag("smoke"),
+            @Tag("regress")
+    })
     @DisplayName("Обычная форма. Заполнены все поля")
     void checkTextBoxFormAllFieldsTest() {
         textBoxPage.openPage()
