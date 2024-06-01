@@ -68,7 +68,14 @@ task demoqa_textbox(type: Test) {
     }
 }
 
+task smoke(type: Test) {
+    useJUnitPlatform {
+        includeTags("smoke")
+    }
+}
 
-
-
-
+task regress(type: Test) {
+    useJUnitPlatform {
+        includeTags("regress")
+    }
+}
