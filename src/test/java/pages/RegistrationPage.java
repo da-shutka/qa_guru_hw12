@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationPage extends BasePage {
+public class RegistrationPage {
 
     private final SelenideElement
             firstNameInput = $("#firstName"),
@@ -36,7 +36,14 @@ public class RegistrationPage extends BasePage {
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        this.removeBanners();
+        //this.removeBanners();
+        return this;
+    }
+
+    @Step("Убрать рекламу")
+    public RegistrationPage removeBanner() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         return this;
     }
 

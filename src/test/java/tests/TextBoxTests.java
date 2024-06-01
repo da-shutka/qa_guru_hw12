@@ -21,6 +21,7 @@ public class TextBoxTests extends TestBase {
     @DisplayName("Обычная форма. Заполнены все поля")
     void checkTextBoxFormAllFieldsTest() {
         textBoxPage.openPage()
+                .removeBanner()
                 .setFullName(testData.fullName)
                 .setUserEmail(testData.userEmail)
                 .setCurrentAddress(testData.currentAddress)

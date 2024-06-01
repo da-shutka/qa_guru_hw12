@@ -18,6 +18,7 @@ public class RegistrationFormTests extends TestBase {
     @DisplayName("Регистрационная форма. Заполнены все поля")
     void checkRegistrationFormAllFieldsTest() {
         registrationPage.openPage()
+                .removeBanner()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
                 .setUserEmail(testData.userEmail)
@@ -57,6 +58,7 @@ public class RegistrationFormTests extends TestBase {
     @DisplayName("Регистрационная форма. Заполнены обязательные поля")
     void checkRegistrationFormMandatoryFieldsTest() {
         registrationPage.openPage()
+                .removeBanner()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
                 .setGender(testData.gender)
@@ -79,7 +81,7 @@ public class RegistrationFormTests extends TestBase {
     @Tag("regress")
     @DisplayName("Регистрационная форма. Заполнены дефолтные поля")
     void checkRegistrationFormNegativeTest() {
-        registrationPage.openPage().submit();
+        registrationPage.openPage().removeBanner().submit();
         registrationPage.checkUnsuccessfulSubmit();
     }
 }
